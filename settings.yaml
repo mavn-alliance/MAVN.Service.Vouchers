@@ -1,0 +1,74 @@
+VouchersService:
+  Db:
+    LogsConnectionString:
+      settings-key: VouchersService-LogsConnectionString
+      types:
+        - AzureTableStorage
+    DataConnectionString:
+      settings-key: VouchersService-DataConnectionString
+
+  Blockchain:
+    VouchersPaymentsContractAddress:
+      settings-key: PrivateBlockchain-VouchersPaymentsContractAddress
+    MasterWalletAddress:
+      settings-key: VouchersService-MasterWalletAddress
+
+  Rabbit:
+    Subscribers:
+      UndecodedEventConnString:
+        settings-key: WalletManagementRabbitMQ
+        types:
+        - RabbitMq
+      TransactionSucceededConnString:
+        settings-key: WalletManagementRabbitMQ
+        types:
+        - RabbitMq
+      TransactionFailedConnString:
+        settings-key: WalletManagementRabbitMQ
+        types:
+        - RabbitMq
+
+    Publishers:
+      VoucherTokensReservedConnString:
+        settings-key: WalletManagementRabbitMQ
+        types:
+        - RabbitMq
+
+Constants:
+  TokenSymbol:
+    settings-key: Constant-TokenSymbol
+  BaseCurrencyCode:
+    settings-key: Constant-BaseCurrencyCode
+
+CampaignService:
+  ServiceUrl:
+    settings-key: CampaignServiceUrl
+
+CustomerProfileService:
+  ServiceUrl:
+    settings-key: CustomerProfileServiceUrl
+
+EligibilityEngineService:
+  ServiceUrl:
+    settings-key: EligibilityEngineServiceUrl
+
+PrivateBlockchainFacadeService:
+  ServiceUrl:
+    settings-key: PrivateBlockchainFacadeServiceUrl
+
+WalletManagementService:
+  ServiceUrl:
+    settings-key: WalletManagementServiceUrl
+
+SlackNotifications:
+  AzureQueue:
+    ConnectionString:
+      settings-key: SlackNotificationsConnString
+      types:
+        - AzureTableStorage
+    QueueName:
+      settings-key: SlackQueueName
+
+MonitoringServiceClient:
+  MonitoringServiceUrl:
+    settings-key: MonitoringServiceUrl
