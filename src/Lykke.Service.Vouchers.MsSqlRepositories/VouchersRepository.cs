@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -70,18 +70,30 @@ namespace Lykke.Service.Vouchers.MsSqlRepositories
             }
         }
 
-
-        public async Task<IReadOnlyList<Voucher>> GetByCustomerIdAsync(Guid customerId)
+        public async Task<PaginatedVouchers> GetByCustomerIdAsync(
+            Guid customerId,
+            int skip,
+            int take)
         {
             using (var context = _contextFactory.CreateDataContext())
             {
-                var entities = await context.Vouchers
+                var vouchers = context.Vouchers
                     .Include(o => o.CustomerVoucher)
                     .Where(o => o.CustomerVoucher.CustomerId == customerId)
-                    .OrderByDescending(o => o.CustomerVoucher.PurchaseDate)
+                    .OrderByDescending(o => o.CustomerVoucher.PurchaseDate);
+
+                var totalCount = await vouchers.CountAsync();
+
+                var result = await vouchers
+                    .Skip(skip)
+                    .Take(take)
                     .ToListAsync();
 
-                return _mapper.Map<List<Voucher>>(entities);
+                return new PaginatedVouchers
+                {
+                    Vouchers = _mapper.Map<List<Voucher>>(result),
+                    TotalCount = totalCount,
+                };
             }
         }
 

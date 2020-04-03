@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -69,16 +69,17 @@ namespace Lykke.Service.Vouchers.Controllers
         /// Returns vouchers by customer identifier.
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
+        /// <param name="pagination">Pagination data.</param>
         /// <returns>
         /// 200 - The collection of customer vouchers.
         /// </returns>
         [HttpGet("/api/customers/{customerId}/vouchers")]
-        [ProducesResponseType(typeof(CustomerVoucherModel[]), (int) HttpStatusCode.OK)]
-        public async Task<IReadOnlyList<CustomerVoucherModel>> GetByCustomerIdAsync(Guid customerId)
+        [ProducesResponseType(typeof(PaginatedCustomerVouchersResponse), (int)HttpStatusCode.OK)]
+        public async Task<PaginatedCustomerVouchersResponse> GetByCustomerIdAsync(Guid customerId, [FromQuery] PaginationModel pagination)
         {
-            var vouchers = await _vouchersService.GetByCustomerIdAsync(customerId);
+            var vouchers = await _vouchersService.GetByCustomerIdAsync(customerId, _mapper.Map<PageInfo>(pagination));
 
-            var model = _mapper.Map<List<CustomerVoucherModel>>(vouchers);
+            var model = _mapper.Map<PaginatedCustomerVouchersResponse>(vouchers);
 
             return model;
         }

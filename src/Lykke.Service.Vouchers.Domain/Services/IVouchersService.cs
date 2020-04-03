@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Falcon.Numerics;
@@ -12,11 +12,14 @@ namespace Lykke.Service.Vouchers.Domain.Services
 
         Task<IReadOnlyList<Voucher>> GetBySpendRuleIdAsync(Guid spendRuleId);
 
-        Task<IReadOnlyList<Voucher>> GetByCustomerIdAsync(Guid customerId);
+        Task<PaginatedVouchers> GetByCustomerIdAsync(Guid customerId, PageInfo pageInfo);
 
         Task AddAsync(Guid spendRuleId, IReadOnlyList<string> codes);
 
-        Task<Voucher> ReserveAsync(Guid spendRuleId, Guid customerId, decimal amountInBaseCurrency,
+        Task<Voucher> ReserveAsync(
+            Guid spendRuleId,
+            Guid customerId,
+            decimal amountInBaseCurrency,
             Money18 amountInTokens);
 
         Task ReleaseAsync(Guid voucherId);

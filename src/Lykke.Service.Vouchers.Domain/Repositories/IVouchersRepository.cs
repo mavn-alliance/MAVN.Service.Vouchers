@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Lykke.Service.Vouchers.Domain.Entities;
@@ -13,7 +13,10 @@ namespace Lykke.Service.Vouchers.Domain.Repositories
 
         Task<IReadOnlyList<Voucher>> GetBySpendRuleIdAsync(Guid spendRuleId);
 
-        Task<IReadOnlyList<Voucher>> GetByCustomerIdAsync(Guid customerId);
+        Task<PaginatedVouchers> GetByCustomerIdAsync(
+            Guid customerId,
+            int skip,
+            int take);
 
         Task<int> GetTotalAsync(Guid spendRuleId);
 

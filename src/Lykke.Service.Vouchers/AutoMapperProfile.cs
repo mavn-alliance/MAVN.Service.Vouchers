@@ -1,4 +1,5 @@
-using AutoMapper;
+﻿using AutoMapper;
+using Lykke.Service.Vouchers.Client.Models;
 using Lykke.Service.Vouchers.Client.Models.Reports;
 using Lykke.Service.Vouchers.Client.Models.Vouchers;
 using Lykke.Service.Vouchers.Domain.Entities;
@@ -9,6 +10,8 @@ namespace Lykke.Service.Vouchers
     {
         public AutoMapperProfile()
         {
+            CreateMap<PaginationModel, PageInfo>(MemberList.Destination);
+
             // Vouchers
 
             CreateMap<Voucher, CustomerVoucherModel>(MemberList.Destination)
@@ -21,6 +24,8 @@ namespace Lykke.Service.Vouchers
 
             CreateMap<Voucher, VoucherModel>(MemberList.Source)
                 .ForSourceMember(src => src.CustomerVoucher, opt => opt.DoNotValidate());
+
+            CreateMap<PaginatedVouchers, PaginatedCustomerVouchersResponse>(MemberList.Destination);
 
             // Reports
 

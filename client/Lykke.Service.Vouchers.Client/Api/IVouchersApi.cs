@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Lykke.Service.Vouchers.Client.Models;
 using Lykke.Service.Vouchers.Client.Models.Vouchers;
 using Refit;
 
@@ -33,9 +34,10 @@ namespace Lykke.Service.Vouchers.Client.Api
         /// Returns vouchers by customer identifier.
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
+        /// <param name="pagination">Pagination data.</param>
         /// <returns>The collection of customer vouchers.</returns>
         [Get("/api/customers/{customerId}/vouchers")]
-        Task<IReadOnlyList<CustomerVoucherModel>> GetByCustomerIdAsync(Guid customerId);
+        Task<PaginatedCustomerVouchersResponse> GetByCustomerIdAsync(Guid customerId, [Query] PaginationModel pagination);
 
         /// <summary>
         /// Creates vouchers.

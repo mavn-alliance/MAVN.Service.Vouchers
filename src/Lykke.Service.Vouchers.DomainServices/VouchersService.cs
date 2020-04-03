@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -44,9 +44,12 @@ namespace Lykke.Service.Vouchers.DomainServices
             return _vouchersRepository.GetBySpendRuleIdAsync(spendRuleId);
         }
 
-        public Task<IReadOnlyList<Voucher>> GetByCustomerIdAsync(Guid customerId)
+        public Task<PaginatedVouchers> GetByCustomerIdAsync(Guid customerId, PageInfo pageInfo)
         {
-            return _vouchersRepository.GetByCustomerIdAsync(customerId);
+            return _vouchersRepository.GetByCustomerIdAsync(
+                customerId,
+                (pageInfo.CurrentPage - 1) * pageInfo.PageSize,
+                pageInfo.PageSize);
         }
 
         public async Task AddAsync(Guid spendRuleId, IReadOnlyList<string> codes)
