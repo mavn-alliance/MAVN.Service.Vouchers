@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Lykke.Sdk" Version="5.17.0" />
+    <PackageReference Include="Falcon.Job.QuorumTransactionWatcher.Contract" Version="4.8.0" />
+    <PackageReference Include="Falcon.Service.NotificationSystem.SubscriberContract" Version="1.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\client\MAVN.Service.Vouchers.Client\MAVN.Service.Vouchers.Client.csproj" />
+    <ProjectReference Include="..\..\contract\MAVN.Service.Vouchers.Contract\MAVN.Service.Vouchers.Contract.csproj" />
+    <ProjectReference Include="..\MAVN.Service.Vouchers.Domain\MAVN.Service.Vouchers.Domain.csproj" />
+    <ProjectReference Include="..\MAVN.Service.Vouchers.DomainServices\MAVN.Service.Vouchers.DomainServices.csproj" />
+    <ProjectReference Include="..\MAVN.Service.Vouchers.MsSqlRepositories\MAVN.Service.Vouchers.MsSqlRepositories.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+</Project>
