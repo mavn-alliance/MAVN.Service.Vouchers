@@ -22,7 +22,7 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories.Migrations
                     b.ToTable("customer_vouchers");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Vouchers.MsSqlRepositories.Entities.TransferEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Vouchers.MsSqlRepositories.Entities.TransferEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +86,7 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories.Migrations
                     b.ToTable("transfers");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,17 +110,17 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories.Migrations
                     b.ToTable("vouchers");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", b =>
                 {
-                    b.HasOne("Lykke.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity")
+                    b.HasOne("MAVN.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity")
                         .WithOne("CustomerVoucher")
-                        .HasForeignKey("Lykke.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", "VoucherId")
+                        .HasForeignKey("MAVN.Service.Vouchers.MsSqlRepositories.Entities.CustomerVoucherEntity", "VoucherId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Lykke.Service.Vouchers.MsSqlRepositories.Entities.TransferEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Vouchers.MsSqlRepositories.Entities.TransferEntity", b =>
                 {
-                    b.HasOne("Lykke.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity")
+                    b.HasOne("MAVN.Service.Vouchers.MsSqlRepositories.Entities.VoucherEntity")
                         .WithMany()
                         .HasForeignKey("VoucherId")
                         .OnDelete(DeleteBehavior.Cascade);
