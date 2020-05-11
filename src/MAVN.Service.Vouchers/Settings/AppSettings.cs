@@ -1,12 +1,12 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Lykke.Sdk.Settings;
-using Lykke.Service.Campaign.Client;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.EligibilityEngine.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.Campaign.Client;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.EligibilityEngine.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client;
 using MAVN.Service.Vouchers.Settings.Common;
 using MAVN.Service.Vouchers.Settings.service;
-using Lykke.Service.WalletManagement.Client;
+using MAVN.Service.WalletManagement.Client;
 
 namespace MAVN.Service.Vouchers.Settings
 {

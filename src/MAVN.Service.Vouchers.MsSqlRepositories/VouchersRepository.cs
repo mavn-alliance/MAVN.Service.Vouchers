@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Common.Log;
 using Lykke.Common.Log;
-using Lykke.Common.MsSql;
+using MAVN.Common.MsSql;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.Domain.Exceptions;
 using MAVN.Service.Vouchers.Domain.Repositories;

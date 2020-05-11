@@ -1,6 +1,6 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using Lykke.Job.QuorumTransactionWatcher.Contract;
+using MAVN.Job.QuorumTransactionWatcher.Contract;
 using Lykke.RabbitMqBroker.Publisher;
 using Lykke.RabbitMqBroker.Subscriber;
 using MAVN.Service.Vouchers.Contract;

@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Lykke.Common.MsSql;
+using MAVN.Common.MsSql;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.Domain.Repositories;
 using MAVN.Service.Vouchers.MsSqlRepositories.Context;
