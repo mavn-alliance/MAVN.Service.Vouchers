@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Log;
 using Lykke.Common.Log;
-using Lykke.Job.QuorumTransactionWatcher.Contract;
+using MAVN.Job.QuorumTransactionWatcher.Contract;
 using Lykke.PrivateBlockchain.Definitions;
 using Lykke.RabbitMqBroker.Subscriber;
 using MAVN.Service.Vouchers.Domain.Services;

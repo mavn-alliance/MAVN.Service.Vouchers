@@ -1,5 +1,5 @@
-using System.Data.Common;
-using Lykke.Common.MsSql;
+﻿using System.Data.Common;
+using MAVN.Common.MsSql;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;

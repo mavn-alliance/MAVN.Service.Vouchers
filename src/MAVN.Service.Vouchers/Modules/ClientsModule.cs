@@ -1,11 +1,11 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using Lykke.Service.Campaign.Client;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.EligibilityEngine.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.Campaign.Client;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.EligibilityEngine.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client;
 using MAVN.Service.Vouchers.Settings;
-using Lykke.Service.WalletManagement.Client;
+using MAVN.Service.WalletManagement.Client;
 using Lykke.SettingsReader;
 
 namespace MAVN.Service.Vouchers.Modules

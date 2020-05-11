@@ -1,24 +1,24 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Common;
 using Common.Log;
-using Falcon.Numerics;
+using MAVN.Numerics;
 using Lykke.Common.Log;
 using Lykke.RabbitMqBroker.Publisher;
-using Lykke.Service.Campaign.Client;
-using Lykke.Service.Campaign.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.EligibilityEngine.Client;
-using Lykke.Service.EligibilityEngine.Client.Enums;
-using Lykke.Service.EligibilityEngine.Client.Models.ConversionRate.Requests;
-using Lykke.Service.PartnerManagement.Client.Models;
-using Lykke.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.Campaign.Client;
+using MAVN.Service.Campaign.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.EligibilityEngine.Client;
+using MAVN.Service.EligibilityEngine.Client.Enums;
+using MAVN.Service.EligibilityEngine.Client.Models.ConversionRate.Requests;
+using MAVN.Service.PartnerManagement.Client.Models;
+using MAVN.Service.PrivateBlockchainFacade.Client;
 using MAVN.Service.Vouchers.Contract;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.Domain.Exceptions;
 using MAVN.Service.Vouchers.Domain.Services;
-using Lykke.Service.WalletManagement.Client;
-using Lykke.Service.WalletManagement.Client.Enums;
+using MAVN.Service.WalletManagement.Client;
+using MAVN.Service.WalletManagement.Client.Enums;
 
 namespace MAVN.Service.Vouchers.DomainServices
 {
