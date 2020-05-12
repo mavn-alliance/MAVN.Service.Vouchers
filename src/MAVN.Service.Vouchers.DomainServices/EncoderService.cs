@@ -1,5 +1,5 @@
-using System;
-using Lykke.PrivateBlockchain.Definitions;
+﻿using System;
+using MAVN.PrivateBlockchain.Definitions;
 using MAVN.Service.Vouchers.Domain.Services;
 using Nethereum.ABI;
 using Nethereum.ABI.FunctionEncoding;
