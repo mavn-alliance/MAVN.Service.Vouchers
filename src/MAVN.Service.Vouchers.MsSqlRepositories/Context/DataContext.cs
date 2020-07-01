@@ -1,5 +1,5 @@
 ﻿using System.Data.Common;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MAVN.Service.Vouchers.MsSqlRepositories.Context
 {
-    public class DataContext : MsSqlContext
+    public class DataContext : PostgreSQLContext
     {
         private const string Schema = "vouchers";
 
@@ -34,11 +34,7 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories.Context
 
         public DbSet<OperationEntity> Operations { get; set; }
 
-        protected override void OnLykkeConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
-
-        protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
+        protected override void OnMAVNModelCreating(ModelBuilder modelBuilder)
         {
             // Vouchers
 
