@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.Domain.Repositories;
 using MAVN.Service.Vouchers.MsSqlRepositories.Context;
@@ -13,10 +13,10 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories
 {
     public class OperationsRepository : IOperationsRepository
     {
-        private readonly MsSqlContextFactory<DataContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<DataContext> _contextFactory;
         private readonly IMapper _mapper;
 
-        public OperationsRepository(MsSqlContextFactory<DataContext> contextFactory, IMapper mapper)
+        public OperationsRepository(PostgreSQLContextFactory<DataContext> contextFactory, IMapper mapper)
         {
             _contextFactory = contextFactory;
             _mapper = mapper;

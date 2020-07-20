@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Common.Log;
 using Lykke.Common.Log;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Vouchers.Domain.Entities;
 using MAVN.Service.Vouchers.Domain.Exceptions;
 using MAVN.Service.Vouchers.Domain.Repositories;
 using MAVN.Service.Vouchers.MsSqlRepositories.Context;
 using MAVN.Service.Vouchers.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MAVN.Service.Vouchers.MsSqlRepositories
 {
@@ -20,12 +21,12 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories
     {
         private const int ViolationInUniqueIndexErrorCode = 2601;
         
-        private readonly MsSqlContextFactory<DataContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<DataContext> _contextFactory;
         private readonly ILog _log;
         private readonly IMapper _mapper;
 
         public VouchersRepository(
-            MsSqlContextFactory<DataContext> contextFactory,
+            PostgreSQLContextFactory<DataContext> contextFactory,
             ILogFactory logFactory,
             IMapper mapper)
         {
@@ -139,7 +140,7 @@ namespace MAVN.Service.Vouchers.MsSqlRepositories
                         transaction.Commit();
                     }
                     catch (DbUpdateException exception)
-                        when ((exception.InnerException as SqlException)?.Number == ViolationInUniqueIndexErrorCode)
+                        when ((exception.InnerException as PostgresException)?.SqlState == PostgresErrorCodes.UniqueViolation)
                     {
                         throw new CodeAlreadyExistException();
                     }
